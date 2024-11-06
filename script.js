@@ -1,49 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('admin-form');
-    const postsContainer = document.getElementById('posts');
+document.getElementById('load-more').addEventListener('click', function() {
+    const eventList = document.getElementById('event-list');
+    const newEvents = [
+        'Volunteer Day - May 5, 2024',
+        'Annual Fundraiser - June 12, 2024'
+    ];
 
-    // Load posts from local storage
-    loadPosts();
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const postContent = document.getElementById('post-content').value;
-        const postImage = document.getElementById('post-image').files[0];
-
-        if (postContent && postImage) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const newPost = {
-                    content: postContent,
-                    image: e.target.result // Base64 image string
-                };
-                savePost(newPost);
-                displayPost(newPost);
-                form.reset(); // Clear the form
-            };
-            reader.readAsDataURL(postImage); // Convert image to base64
-        }
+    newEvents.forEach(event => {
+        const li = document.createElement('li');
+        li.textContent = event;
+        eventList.appendChild(li);
     });
 
-    function savePost(post) {
-        let posts = JSON.parse(localStorage.getItem('posts')) || [];
-        posts.push(post);
-        localStorage.setItem('posts', JSON.stringify(posts));
-    }
+    this.style.display = 'none'; // Hide the button after loading more events
+});
 
-    function loadPosts() {
-        const posts = JSON.parse(localStorage.getItem('posts')) || [];
-        posts.forEach(post => displayPost(post));
-    }
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+    alert('Thank you for your message, ' + document.getElementById('name').value + '! We will get back to you soon.');
+    this.reset(); // Reset the form fields
+});
 
-    function displayPost(post) {
-        const postDiv = document.createElement('div');
-        postDiv.classList.add('post');
-        postDiv.innerHTML = `
-            <p>${post.content}</p>
-            <img src="${post.image}" alt="Post Image" style="max-width: 100%; height: auto;">
-        `;
-        postsContainer.appendChild(postDiv);
-    }
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        targetElement.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
