@@ -30,7 +30,7 @@ nav ul li a {
 }
 
 main {
-    padding: 20px;
+    padding: 20px ```css
 }
 
 section {
@@ -42,7 +42,7 @@ section {
 }
 
 h2 {
-    color: #4a8c2a; /* Green color for headings */
+    color: #4a8c2a;
 }
 
 footer {
@@ -50,28 +50,38 @@ footer {
     padding: 10px 0;
     background: #4a8c2a;
     color: #ffffff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
-button {
-    background-color: #4a8c2a;
+#admin-dashboard {
+    margin-top: 20px;
+    padding: 20px;
+    background: #e9f5e9; /* Light green background for admin section */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#post-list {
+    list-style: none;
+    padding: 0;
+}
+
+#post-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button.delete-post {
+    background-color: #d9534f; /* Red for delete button */
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: #3a6b22; /* Darker green on hover */
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+button.delete-post:hover {
+    background-color: #c9302c; /* Darker red on hover */
 }
