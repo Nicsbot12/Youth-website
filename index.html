@@ -3,39 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Youth Organization - Faith in Action</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Youth Organization - Home</title>
 </head>
 <body>
     <header>
-        <h1>Youth Organization</h1>
+        <h1>Welcome to Our Youth Organization</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a id="admin-link" href="admin.html" style="display: none;">Admin</a>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
         </nav>
     </header>
-    <main>
-        <h2>Welcome to our Youth Organization!</h2>
-        <p>We are dedicated to empowering youth through various programs and initiatives. Join us in making a difference in our community!</p>
-        <div id="posts-container">
-            <h3>Recent Posts</h3>
-            <div id="posts"></div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Youth Organization</p>
-    </footer>
-    <script>
-        // Simulate admin check
-        const isAdmin = false; // Change to true to show the admin link
 
-        if (isAdmin) {
-            document.getElementById('admin-link').style.display = 'block';
-        }
-    </script>
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a youth organization dedicated to empowering young people through faith-based activities and programs that inspire and uplift.</p>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <ul id="event-list">
+                <li>Community Prayer Gathering - March 15, 2024</li>
+                <li>Youth Leadership Retreat - April 20, 2024</li>
+                <li>Summer Faith Camp - July 10-15, 2024</li>
+            </ul>
+            <button id="load-more">Load More Events</button>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Youth Organization. All rights reserved. "Faith in Action."</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html>
+                    </html>
