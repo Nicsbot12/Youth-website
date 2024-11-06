@@ -36,13 +36,13 @@
         <p>&copy; 2023 Youth Organization</p>
     </footer>
     <script>
-        // Simulate admin check
-        const isAdmin = true; // Change to true to show the admin link
+        // Check if user is admin
+        const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
-        if (isAdmin) {
-            document.getElementById('admin-link').style.display = 'block';
+        if (!isAdmin) {
+            alert('You are not authorized to access this page.');
+            window.location.href = 'login.html'; // Redirect to login page
         }
     </script>
 </body>
-</html ```html
-    </html>
+</html>
