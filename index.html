@@ -14,6 +14,7 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#admin" id="admin-link" style="display:none;">Admin Panel</a></li>
             </ul>
         </nav>
     </header>
@@ -49,6 +50,38 @@
                 <button type="submit">Send Message</button>
             </form>
         </section>
+
+        <!-- Admin Panel -->
+        <section id="admin" style="display: none;">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <label for="admin-username">Username:</label>
+                <input type="text" id="admin-username" required>
+
+                <label for="admin-password">Password:</label>
+                <input type="password" id="admin-password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <div id="admin-dashboard" style="display: none;">
+                <h2>Admin Dashboard</h2>
+                <form id="post-form">
+                    <label for="post-title">Post Title:</label>
+                    <input type="text" id="post-title" required>
+
+                    <label for="post-image">Post Image URL:</label>
+                    <input type="text" id="post-image" required>
+
+                    <label for="post-content">Post Content:</label>
+                    <textarea id="post-content" required></textarea>
+
+                    <button type="submit">Create Post</button>
+                </form>
+                <h3>Existing Posts</h3>
+                <ul id="post-list"></ul>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -57,4 +90,4 @@
 
     <script src="script.js"></script>
 </body>
-                    </html>
+    </html>
