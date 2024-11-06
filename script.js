@@ -1,35 +1,47 @@
-document.getElementById('load-more').addEventListener('click', function() {
-    const eventList = document.getElementById('event-list');
-    const newEvents = [
-        'Volunteer Day - May 5, 2024',
-        'Annual Fundraiser - June 12, 2024'
-    ];
+let isAdmin = false;
+const posts = [];
 
-    newEvents.forEach(event => {
+document.getElementById('admin-login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('admin-username').value;
+    const password = document.getElementById('admin-password').value;
+
+    // Simple admin check (replace with real authentication in production)
+    if (username === 'admin' && password === 'password') {
+        isAdmin = true;
+        document.getElementById('admin').style.display = 'block';
+        document.getElementById('admin-dashboard').style.display = 'block';
+        document.getElementById('admin-link').style.display = 'block';
+        alert('Login successful!');
+    } else {
+        alert('Invalid credentials');
+    }
+});
+
+document.getElementById('post-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const title = document.getElementById('post-title').value;
+    const image = document.getElementById('post-image').value;
+    const content = document.getElementById('post-content').value;
+
+    const post = { title, image, content };
+    posts.push(post);
+    displayPosts();
+    this.reset();
+});
+
+function displayPosts() {
+    const postList = document.getElementById('post-list');
+    postList.innerHTML = '';
+    posts.forEach((post, index) => {
         const li = document.createElement('li');
-        li.textContent = event;
-        eventList.appendChild(li);
+        li.innerHTML = `<h4>${post.title}</h4><img src="${post.image}" alt="${post.title}" style="max-width:100%;"><p>${post.content}</p>
+        <button class="delete-post" onclick="deletePost(${index})">Delete</button>`;
+        postList.appendChild(li);
     });
+}
 
-    this.style.display = 'none'; // Hide the button after loading more events
-});
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-    alert('Thank you for your message, ' + document.getElementById('name').value + '! We will get back to you soon.');
-    this.reset(); // Reset the form fields
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        targetElement.scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+function deletePost(index) {
+    posts.splice(index, 1);
+    displayPosts();
+}
