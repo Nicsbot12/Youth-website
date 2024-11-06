@@ -15,7 +15,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="admin.html">Admin</a>
+            <a id="admin-link" href="admin.html" style="display: none;">Admin</a>
         </nav>
     </header>
     <main>
@@ -32,8 +32,17 @@
             <div id="posts"></div>
         </div>
     </main>
- <footer>
+    <footer>
         <p>&copy; 2023 Youth Organization</p>
     </footer>
+    <script>
+        // Simulate admin check
+        const isAdmin = true; // Change to true to show the admin link
+
+        if (isAdmin) {
+            document.getElementById('admin-link').style.display = 'block';
+        }
+    </script>
 </body>
-</html>
+</html ```html
+    </html>
