@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Youth Organization - Admin</title>
+</head>
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Create a New Post</h2>
+        <form id="admin-form">
+            <label for="post-content">Post Content:</label>
+            <textarea id="post-content" required></textarea>
+            <label for="post-image">Upload Image:</label>
+            <input type="file" id="post-image" accept="image/*" required>
+            <button type="submit">Create Post</button>
+        </form>
+        <div id="posts-container">
+            <h3>Recent Posts</h3>
+            <div id="posts"></div>
+        </div>
+    </main>
+ <footer>
+        <p>&copy; 2023 Youth Organization</p>
+    </footer>
+</body>
+</html>
